@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joby Aviation S4 eVTOL 飞行汽车技术与市场全方位调研分析</title>
+<style>
+  :root {
+    --primary: #0f172a;
+    --secondary: #1e293b;
+    --accent: #0284c7;
+    --accent-light: #e0f2fe;
+    --teal: #0d9488;
+    --amber: #d97706;
+    --text: #334155;
+    --muted: #64748b;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+  }
+  /* Navigation */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 0 5%;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  .brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand span {
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #38bdf8; }
+
+  /* Hero Section */
+  header.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0369a1 100%);
+    color: #fff;
+    padding: 72px 5% 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.2);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #7dd3fc;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    font-weight: 800;
+  }
+  .hero p {
+    max-width: 820px;
+    font-size: 1.08rem;
+    color: #e2e8f0;
+    margin-bottom: 36px;
+  }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+  }
+  .kpi-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 18px 20px;
+    backdrop-filter: blur(4px);
+  }
+  .kpi-val {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #38bdf8;
+    margin-bottom: 4px;
+  }
+  .kpi-label {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+  }
+
+  /* Main Container */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 5% 80px;
+  }
+  section {
+    margin-bottom: 56px;
+  }
+  .sec-header {
+    margin-bottom: 24px;
+    border-left: 4px solid var(--accent);
+    padding-left: 16px;
+  }
+  .sec-tag {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .sec-header h2 {
+    font-size: 1.65rem;
+    color: var(--primary);
+    margin-top: 2px;
+  }
+
+  /* Cards & Grids */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+  }
+  .card h3 {
+    font-size: 1.18rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p {
+    font-size: 0.96rem;
+    margin-bottom: 12px;
+  }
+  .card ul {
+    padding-left: 20px;
+    font-size: 0.95rem;
+  }
+  .card li { margin-bottom: 8px; }
+
+  /* Interactive Tab System for Subsystems */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .tab-btn {
+    padding: 10px 18px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+  }
+  .tab-panel {
+    display: none;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .tab-panel.active { display: block; }
+
+  /* SVG Diagram Box */
+  .diagram-box {
+    background: #0f172a;
+    border-radius: 14px;
+    padding: 24px;
+    color: #f8fafc;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .diagram-caption {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    margin-top: 12px;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.94rem;
+  }
+  th {
+    background: #0f172a;
+    color: #fff;
+    text-align: left;
+    padding: 14px 16px;
+    font-weight: 600;
+  }
+  td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:nth-child(even) td { background: #f8fafc; }
+  .pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .pill-blue { background: #e0f2fe; color: #0369a1; }
+  .pill-green { background: #dcfce7; color: #15803d; }
+  .pill-amber { background: #fef3c7; color: #b45309; }
+
+  /* Interactive Range & Cost Estimator */
+  .calc-box {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 14px;
+    padding: 26px;
+  }
+  .slider-row {
+    margin: 16px 0;
+  }
+  .slider-row label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--primary);
+  }
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+  }
+  .calc-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .res-item {
+    background: #fff;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #bae6fd;
+    text-align: center;
+  }
+  .res-num {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .res-txt {
+    font-size: 0.84rem;
+    color: var(--muted);
+  }
+
+  /* Footer */
+  footer {
+    background: var(--primary);
+    color: #94a3b8;
+    text-align: center;
+    padding: 32px 5%;
+    font-size: 0.9rem;
+  }
+  footer strong { color: #fff; }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">FLYING VEHICLE LAB <span>作业一 · 深度调研</span></div>
+    <ul class="nav-links">
+      <li><a href="#overview">公司与型号</a></li>
+      <li><a href="#subsystems">子系统与关键技术</a></li>
+      <li><a href="#feasibility">技术可行性</a></li>
+      <li><a href="#scenarios">应用场景与仿真</a></li>
+      <li><a href="#market">市场与竞品对比</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="badge">Fundamentals of Flying Vehicle Technology | 课程作业一</div>
+    <h1>Joby Aviation S4 倾转旋翼 eVTOL 飞行汽车<br>全方位技术与市场深度调研分析</h1>
+    <p>围绕全球电动垂直起降（eVTOL）领军企业 Joby Aviation 及其旗舰量产机型 Joby S4（JAS4-1），从总体气动构型、六倾转旋翼电推进系统、高比能电池包、飞控航电架构、适航认证进展及商业化运营经济性等维度开展系统性技术剖析。</p>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-val">322 km/h</div>
+        <div class="kpi-label">最大巡航速度 (200 mph)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">161+ km</div>
+        <div class="kpi-label">单次充电设计航程 (100+ miles)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">45.2 dBA</div>
+        <div class="kpi-label">100m 高度巡航声压级（超低噪声）</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">1 飞手 + 4 乘客</div>
+        <div class="kpi-label">座舱布局（有效载荷约 454 kg）</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Section 1: Company & Model -->
+  <section id="overview">
+    <div class="sec-header">
+      <div class="sec-tag">01 / Company & Vehicle Profile</div>
+      <h2>公司背景、发展历程与 Joby S4 总体构型参数</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>🏢 公司主体与产业生态布局</h3>
+        <p><strong>Joby Aviation</strong> 成立于 2009 年，总部位于美国加利福尼亚州圣克鲁斯（Santa Cruz），于 2021 年在纽交所上市（NYSE: JOBY），是全球最早进入美国联邦航空管理局（FAA）Part 23 型号合格证（TC）第四阶段符合性验证的 eVTOL 头部企业。</p>
+        <ul>
+          <li><strong>垂直整合制造模式：</strong>自研核心双绕组永磁同步电机、高能量密度电池模组、作动器及飞控计算机，减少对传统航空一级供应商的依赖。</li>
+          <li><strong>战略产业联盟：</strong>丰田汽车（Toyota）累计投资近 9 亿美元，深度赋能其加州 Marina 工厂与俄亥俄州 Dayton 规模化量产基地的精益制造体系；与达美航空（Delta Air Lines）及 Uber 达成空中接驳战略合作。</li>
+          <li><strong>军民融合验证：</strong>已向美国空军（AFWERX Agility Prime 项目）交付首架量产构型 S4 开展实战化后勤与基地通勤测试。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✈️ Joby S4 (JAS4-1) 核心整机技术规格</h3>
+        <ul>
+          <li><strong>气动布局：</strong>复合翼 + 六倾转旋翼（6 Tilting Propellers）矢量推力构型，配备常规固定翼主翼与 V 型尾翼（V-Tail），兼顾垂直起降悬停效率与固定翼高速巡航升阻比。</li>
+          <li><strong>几何尺寸：</strong>翼展约 11.6 m（38 ft），机身长度约 7.3 m（24 ft），采用全碳纤维增强复合材料（CFRP）主承力机体结构。</li>
+          <li><strong>重量指标：</strong>最大起飞重量（MTOW）约 2,404 kg（5,300 lbs），有效商载 454 kg（1,000 lbs，含 1 名飞行员 + 4 名乘客及随身行李）。</li>
+          <li><strong>动力能源：</strong>纯电锂离子电池组（811 高镍三元体系），配备液冷热管理系统，支持大功率快充（周转充电时间 &lt; 10 分钟）。</li>
+          <li><strong>噪声控制：</strong>悬停状态距地面 100 m 处噪声约 65 dBA，巡航飞越噪声低至 45.2 dBA（与背景环境音相当，较传统直升机降低约 100 倍声能）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Custom SVG Architecture Diagram -->
+    <div class="diagram-box" style="margin-top:24px;">
+      <svg viewBox="0 0 880 300" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background Grid -->
+        <defs>
+          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1e293b" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="880" height="300" fill="url(#grid)" rx="8"/>
+        
+        <!-- Main Wing -->
+        <path d="M 140 145 L 740 145 L 720 165 L 160 165 Z" fill="#38bdf8" opacity="0.85"/>
+        <!-- Fuselage -->
+        <ellipse cx="440" cy="155" rx="34" ry="85" fill="#f8fafc" stroke="#0284c7" stroke-width="3"/>
+        <ellipse cx="440" cy="115" rx="22" ry="28" fill="#0f172a"/>
+        <text x="440" y="120" fill="#38bdf8" font-size="11" text-anchor="middle" font-weight="bold">座舱(1+4)</text>
+        
+        <!-- V-Tail -->
+        <path d="M 425 225 L 365 265 L 385 270 L 435 235 Z" fill="#0284c7"/>
+        <path d="M 455 225 L 515 265 L 495 270 L 445 235 Z" fill="#0284c7"/>
+
+        <!-- 6 Tilting Propellers -->
+        <!-- Inner Left & Right -->
+        <rect x="315" y="115" width="14" height="35" rx="4" fill="#f59e0b"/>
+        <ellipse cx="322" cy="112" rx="48" ry="8" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+        <text x="322" y="95" fill="#fbbf24" font-size="11" text-anchor="middle">内侧倾转旋翼 #2</text>
+
+        <rect x="551" y="115" width="14" height="35" rx="4" fill="#f59e0b"/>
+        <ellipse cx="558" cy="112" rx="48" ry="8" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+        <text x="558" y="95" fill="#fbbf24" font-size="11" text-anchor="middle">内侧倾转旋翼 #5</text>
+
+        <!-- Outer Left & Right -->
+        <rect x="165" y="120" width="14" height="30" rx="4" fill="#f59e0b"/>
+        <ellipse cx="172" cy="117" rx="45" ry="8" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+        <text x="172" y="95" fill="#fbbf24" font-size="11" text-anchor="middle">翼尖倾转旋翼 #1</text>
+
+        <rect x="701" y="120" width="14" height="30" rx="4" fill="#f59e0b"/>
+        <ellipse cx="708" cy="117" rx="45" ry="8" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+        <text x="708" y="95" fill="#fbbf24" font-size="11" text-anchor="middle">翼尖倾转旋翼 #6</text>
+
+        <!-- Tail Left & Right -->
+        <rect x="368" y="242" width="12" height="24" rx="3" fill="#f59e0b"/>
+        <ellipse cx="374" cy="240" rx="38" ry="7" fill="none" stroke="#38bdf8" stroke-width="2"/>
+        <text x="305" y="275" fill="#fbbf24" font-size="11" text-anchor="middle">尾翼倾转旋翼 #3</text>
+
+        <rect x="500" y="242" width="12" height="24" rx="3" fill="#f59e0b"/>
+        <ellipse cx="506" cy="240" rx="38" ry="7" fill="none" stroke="#38bdf8" stroke-width="2"/>
+        <text x="575" y="275" fill="#fbbf24" font-size="11" text-anchor="middle">尾翼倾转旋翼 #4</text>
+
+        <!-- Battery Packs in Wing -->
+        <rect x="215" y="149" width="85" height="12" rx="2" fill="#10b981"/>
+        <rect x="580" y="149" width="85" height="12" rx="2" fill="#10b981"/>
+        <text x="257" y="182" fill="#34d399" font-size="11" text-anchor="middle">机翼分布式高压电池组 A</text>
+        <text x="622" y="182" fill="#34d399" font-size="11" text-anchor="middle">机翼分布式高压电池组 B</text>
+      </svg>
+      <div class="diagram-caption">图 1：Joby S4 六倾转旋翼复合翼构型与机翼分布式高压储能系统布局示意图</div>
+    </div>
+  </section>
+
+  <!-- Section 2: Subsystems & Key Technologies -->
+  <section id="subsystems">
+    <div class="sec-header">
+      <div class="sec-tag">02 / Subsystems & Core Technologies</div>
+      <h2>核心子系统分解与关键技术剖析（点击切换查看）</h2>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(0)">1. 六倾转电推进系统 (DEP)</button>
+      <button class="tab-btn" onclick="switchTab(1)">2. 高比能电池与热管理</button>
+      <button class="tab-btn" onclick="switchTab(2)">3. 飞控系统与倾转过渡控制</button>
+      <button class="tab-btn" onclick="switchTab(3)">4. 气动降噪与复材结构</button>
+    </div>
+
+    <div class="tab-panel active" id="panel-0">
+      <h3>⚡ 分布式电推进（DEP）与双绕组高功重比电机</h3>
+      <p>Joby S4 摒弃了传统直升机复杂的机械主减速器、尾桨传动轴与倾转机构互联轴（Cross-shafting），采用 6 套独立电驱动推进单元（EPU）：</p>
+      <ul>
+        <li><strong>自研双绕组永磁同步电机：</strong>单台电机峰值功率约 236 kW，但重量仅约 28 kg（系统功重比突破 8.4 kW/kg）。电机内部集成两套物理与电气完全隔离的三相定子绕组，由两路独立逆变器供电，单绕组故障时仍可输出 50% 以上推力。</li>
+        <li><strong>五叶变距低叶尖速度螺旋桨：</strong>采用 5 片非均匀分布掠形碳纤维桨叶，具备大范围总距（Collective Pitch）调节能力。悬停阶段采用大桨距、低转速策略降低桨尖马赫数；巡航阶段大角度增加桨距，维持高推进效率（&gt;85%）。</li>
+        <li><strong>全电倾转作动机构：</strong>每个短舱配备双余度机电作动器（EMA），实现短舱在 0°（水平巡航）至 90°（垂直悬停）之间平滑连续倾转，响应带宽高且免除液压油泄漏风险。</li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" id="panel-1">
+      <h3>🔋 机翼分布式高压储能系统与被动防热失控设计</h3>
+      <p>eVTOL 在起飞与着陆悬停阶段需要极高的瞬时放电倍率（3C~4C），而在巡航阶段需要高比能量支撑航程：</p>
+      <ul>
+        <li><strong>电芯选型与包级能量密度：</strong>采用定制软包高镍三元（NMC 811）锂离子电芯（单体比能量约 288 Wh/kg），通过去模组化（CTP）结构封装于左右主翼前缘与主梁之间，电池系统包级比能量达到 235 Wh/kg，总装机容量约 160 kWh。</li>
+        <li><strong>多总线独立供电架构：</strong>整机电池划分为 4 个电气隔离的高压子电池包，每个子电池包同时向 3 台不同位置的电机交叉供电。即使任意一个电池包完全失效，其余 3 个电池包仍能维持 6 台电机对称工作，确保安全垂直降落。</li>
+        <li><strong>航空级热失控抑制：</strong>电芯间植入气凝胶隔热垫与定向泄压排气通道，结合乙二醇水溶液冷板热管理系统，在 ground turn-around（地面周转）期间可实现 10 分钟快速补能。</li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" id="panel-2">
+      <h3>🧭 统一飞行控制律（Unified Control）与四余度飞控架构</h3>
+      <p>倾转旋翼飞行器最大的控制难点在于<strong>垂直悬停模式（旋翼支配）</strong>与<strong>水平固定翼模式（气动舵面支配）</strong>之间的过渡走廊（Transition Corridor）控制：</p>
+      <ul>
+        <li><strong>“类汽车/简化操控”统一控制律：</strong>Joby 开发了基于非线性动态逆（NDI）与控制分配（Control Allocation）的统一飞控系统。飞行员仅通过左右两个操作杆（左侧控制垂直/纵向速度，右侧控制航向与滚转轨迹）即可完成全包线飞行，飞控计算机自动解算 6 个短舱倾转角、6 个桨距角、6 台电机转速及 V 尾舵面偏转角。</li>
+        <li><strong>四余度异构飞控硬件：</strong>采用四通道独立飞控计算机（FCC），结合多源融合惯导（IMU）、大气数据计算机与高抗干扰光纤总线，满足民航最高安全等级 DAL-A（灾难性失效概率 &lt; 10<sup>-9</sup> /飞行小时）要求。</li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" id="panel-3">
+      <h3>🔇 气动声学降噪设计与全碳纤维复材机体</h3>
+      <p>城市空中交通（UAM）能否进入市中心起降场，噪声是决定性门槛：</p>
+      <ul>
+        <li><strong>声学特征优化：</strong>Joby 联合 NASA 开展大量风洞与声学阵列测试，通过降低桨尖线速度（悬停桨尖速度较直升机低约 35%）、优化桨叶剖面环量分布以及利用机身/机翼对旋翼尾流的声学遮蔽效应，消除了直升机特有的低频“拍击声（BVI 噪声）”，使巡航噪声融入城市背景音（45.2 dBA）。</li>
+        <li><strong>全碳纤维复材结构：</strong>机身与机翼采用预浸料热压罐成型碳纤维复合材料，结构重量系数较传统铝合金航空器降低约 25%，同时具备优异的抗疲劳与耐腐蚀特性。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section 3: Technical Feasibility -->
+  <section id="feasibility">
+    <div class="sec-header">
+      <div class="sec-tag">03 / Technical Feasibility Assessment</div>
+      <h2>技术可行性深度评估（气动、能源、适航与基建）</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <h3>✅ 已验证的技术成熟度 (TRL 8-9)</h3>
+        <p>截至 2026 年，Joby S4 已累计完成超过 35,000 英里的全尺寸试飞，验证了 200 mph 极速巡航、单发/双发失效安全着陆及高温高海拔（如爱德华兹空军基地）极端环境适应性，核心气动与电驱技术已跨过工程验证鸿沟。</p>
+      </div>
+      <div class="card">
+        <h3>⚖️ 航程与电池比能物理约束</h3>
+        <p>在当前 235 Wh/kg 包级能量密度下，S4 能够覆盖 100~150 英里（160~240 km）城市群城际出行需求（含 20 分钟 IFR 备份能源）。但若要进一步拓展至 400 km 以上支线航空，仍需等待 400+ Wh/kg 半固态/全固态电池量产突破。</p>
+      </div>
+      <div class="card">
+        <h3>📜 适航认证与低空空管协同</h3>
+        <p>FAA 专门为动力升力航空器（Powered-Lift）颁布了特种操作与飞行员培训规则（SFAR），扫除了法规障碍；但大规模高密度运行仍依赖低空数字孪生空管系统（UTM）及城市垂直起降场（Vertiport）兆瓦级快充电网配套。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Application Scenarios & Interactive Calculator -->
+  <section id="scenarios">
+    <div class="sec-header">
+      <div class="sec-tag">04 / Application Scenarios & Mission Simulator</div>
+      <h2>典型应用场景与航程-运营经济性交互仿真</h2>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:24px;">
+      <div class="card">
+        <h3>🏙️ 场景一：机场快速接驳 (Airport Shuttle)</h3>
+        <p><strong>典型航线：</strong>纽约曼哈顿市中心 ↔ 肯尼迪国际机场（JFK，约 28 km）。</p>
+        <p><strong>痛点解决：</strong>地面拥堵高峰期需 60~90 分钟，Joby S4 仅需 <strong>7 分钟</strong>直达，单座票价对标高端专车（约 70~100 美元），商业闭环最易率先跑通。</p>
+      </div>
+      <div class="card">
+        <h3>🌉 场景二：跨海湾/跨江都市圈通勤</h3>
+        <p><strong>典型航线：</strong>旧金山 ↔ 圣何塞 / 粤港澳大湾区跨海走廊（约 60~120 km）。</p>
+        <p><strong>痛点解决：</strong>绕行桥梁或渡轮耗时 1.5~2 小时，eVTOL 直线飞越仅需 <strong>15~25 分钟</strong>，充分发挥固定翼巡航高升阻比优势。</p>
+      </div>
+      <div class="card">
+        <h3>🚑 场景三：应急医疗救援与特种后勤</h3>
+        <p><strong>典型任务：</strong>黄金 1 小时器官转运、山区灾害应急投送与离岸风电平台人员轮换。</p>
+        <p><strong>痛点解决：</strong>无需机场跑道，可在医院楼顶停机坪或临时平整场地起降，响应速度较地面救护车提升 3~5 倍。</p>
+      </div>
+    </div>
+
+    <!-- Interactive Simulator -->
+    <div class="calc-box">
+      <h3 style="color:#0f172a; margin-bottom:6px;">🧮 Joby S4 航线任务性能与商业运营交互估算器</h3>
+      <p style="font-size:0.9rem; color:#475569;">拖动下方滑块，模拟不同航段距离与搭载乘客人数下的飞行耗时、电池消耗及单次航班营收测算：</p>
+      
+      <div class="slider-row">
+        <label><span>设定航线直线距离：</span><span id="dist-val">50 km</span></label>
+        <input type="range" id="dist-slider" min="15" max="160" value="50" oninput="updateCalc()">
+      </div>
+      <div class="slider-row">
+        <label><span>搭载付费乘客人数（1~4人）：</span><span id="pax-val">3 人</span></label>
+        <input type="range" id="pax-slider" min="1" max="4" value="3" oninput="updateCalc()">
+      </div>
+
+      <div class="calc-results">
+        <div class="res-item">
+          <div class="res-num" id="res-time">12.5 分钟</div>
+          <div class="res-txt">预计总飞行时间（含起降过渡）</div>
+        </div>
+        <div class="res-item">
+          <div class="res-num" id="res-soc">31%</div>
+          <div class="res-txt">预估电池电量消耗（含起降高功段）</div>
+        </div>
+        <div class="res-item">
+          <div class="res-num" id="res-save">节省 52 分钟</div>
+          <div class="res-txt">对比高峰期地面网约车节省时间</div>
+        </div>
+        <div class="res-item">
+          <div class="res-num" id="res-rev">$450</div>
+          <div class="res-txt">单架次预估票务营收（按 $3/座·km）</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Market Feasibility & Competitor Comparison -->
+  <section id="market">
+    <div class="sec-header">
+      <div class="sec-tag">05 / Market Feasibility & Competitive Landscape</div>
+      <h2>市场可行性分析与全球主流飞行汽车竞品对比</h2>
+    </div>
+
+    <div class="table-wrap" style="margin-bottom:24px;">
+      <table>
+        <thead>
+          <tr>
+            <th>厂商与型号</th>
+            <th>气动构型</th>
+            <th>最大起飞重量</th>
+            <th>巡航速度 / 航程</th>
+            <th>座舱布局</th>
+            <th>技术路线特点与商业定位</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Joby Aviation S4</strong><br><span class="pill pill-blue">美国 · 领军标杆</span></td>
+            <td>六倾转旋翼<br>(复合翼矢量推力)</td>
+            <td>2,404 kg</td>
+            <td>322 km/h<br>161+ km</td>
+            <td>1 飞手 + 4 乘客</td>
+            <td>全倾转构型巡航效率最高、噪声最低；采用自研双绕组电机+丰田制造体系，主打“空中 Uber”自营网约运营</td>
+          </tr>
+          <tr>
+            <td><strong>Archer Midnight</strong><br><span class="pill pill-blue">美国 · 核心竞品</span></td>
+            <td>12 旋翼复合翼<br>(前6倾转+后6升力)</td>
+            <td>3,175 kg</td>
+            <td>241 km/h<br>160 km</td>
+            <td>1 飞手 + 4 乘客</td>
+            <td>采用成熟一级航空供应商（COTS）供应链加速适航取证，前倾转+后固定升力桨折中方案，死重略高</td>
+          </tr>
+          <tr>
+            <td><strong>峰飞盛世龙 (V2000CG)</strong><br><span class="pill pill-green">中国 · 复合翼代表</span></td>
+            <td>升力+巡航复合翼<br>(10升力桨+3推力桨)</td>
+            <td>2,000 kg</td>
+            <td>200 km/h<br>250 km</td>
+            <td>5 座 (1+4)</td>
+            <td>结构简单、无需复杂倾转机构，可靠性高且取证进度领先，但巡航阶段升力桨存在额外废阻</td>
+          </tr>
+          <tr>
+            <td><strong>小鹏汇天 陆地航母</strong><br><span class="pill pill-amber">中国 · 分体式</span></td>
+            <td>陆行母舰 +<br>六旋翼折叠飞行器</td>
+            <td>飞行体约 600 kg</td>
+            <td>~90 km/h<br>~30 km</td>
+            <td>2 座 (飞行体)</td>
+            <td>面向个人消费级（2C）户外飞行体验，依赖地面增程母舰解决补能与道路行驶问题，航程较短</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>📈 市场规模与商业模式可行性</h3>
+        <p>据摩根士丹利与罗兰贝格预测，全球城市空中交通（UAM）市场规模将在 2030 年突破 500 亿美元，2040 年达到万亿美元级。Joby 采取<strong>“整机制造 + 自营空中出行平台（Aerial Ridesharing）”</strong>双轮驱动模式：</p>
+        <ul>
+          <li><strong>高利用率摊薄折旧：</strong>单架 S4 制造成本在规模化量产后预计降至 130 万美元左右，按每日执飞 20~25 架次、平均载客 2.5~3 人计算，单架飞机年营收可达 200 万美元以上，具备良好的单位经济效益（Unit Economics）。</li>
+          <li><strong>先B端/特定航线、后大众普及：</strong>商业化路径遵循“迪拜/纽约机场接驳线 → 都市圈城际快线 → 规模化低空公交网络”的三步走策略。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>⚠️ 商业化落地核心风险与应对</h3>
+        <ul>
+          <li><strong>初期基建与空域容量瓶颈：</strong>城市核心区 Vertiport 审批周期长，需与地方政府及商业地产合作，优先改造现有直升机停机坪与大型交通枢纽顶层停车场。</li>
+          <li><strong>公众安全感知与保险成本：</strong>建立严苛的预防性维护体系（基于机载健康监测系统 PHM），通过零事故安全运营记录逐步降低航空责任险费率。</li>
+          <li><strong>电池循环寿命与更换成本：</strong>高频快充工况下动力电池约 1,500~2,000 次循环后需梯次退役，需通过电池梯次利用与材料回收降低全生命周期运维成本（DOC）。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>课程作业一：针对飞行汽车的某技术/产品的全方位调研与分析</strong> | 调研对象：Joby Aviation S4 eVTOL</p>
+  <p style="margin-top:6px;">Fundamentals of Flying Vehicle Technology · 2026 | 仓库入口文件：index.html</p>
+</footer>
+
+<script>
+  function switchTab(idx) {
+    const btns = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+    btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+    panels.forEach((p, i) => p.classList.toggle('active', i === idx));
+  }
+
+  function updateCalc() {
+    const dist = parseInt(document.getElementById('dist-slider').value, 10);
+    const pax = parseInt(document.getElementById('pax-slider').value, 10);
+    document.getElementById('dist-val').textContent = dist + ' km';
+    document.getElementById('pax-val').textContent = pax + ' 人';
+
+    // 3 min vertical takeoff/transition + cruise at ~280 km/h (4.67 km/min)
+    const flightMin = (3.0 + dist / 4.67).toFixed(1);
+    // Base 12% SOC for VTOL hover + 0.38% per km cruise
+    const socUsed = Math.min(85, Math.round(12 + dist * 0.38));
+    // Ground traffic ~ 45 km/h (1.33 min/km)
+    const groundMin = Math.round(dist * 1.33);
+    const savedMin = Math.max(5, Math.round(groundMin - parseFloat(flightMin)));
+    // Revenue: $3 per seat-km
+    const rev = Math.round(dist * pax * 3);
+
+    document.getElementById('res-time').textContent = flightMin + ' 分钟';
+    document.getElementById('res-soc').textContent = socUsed + '%';
+    document.getElementById('res-save').textContent = '节省 ' + savedMin + ' 分钟';
+    document.getElementById('res-rev').textContent = '$' + rev;
+  }
+</script>
+</body>
+</html>
